@@ -85,11 +85,8 @@ function doodle (processing) {
 
 	}
 
-	/* && mouseX>290 && mouseX<290+20 && mouseY>320 && mouseY<320+20
-	*/
 	processing.mouseClicked = function () {
-		if 
-			(bottom == color(0)); {
+		if (bottom == color(0)) {
 			bottom = color(255, 183, 51);
 		} else {
 			bottom = color(0);
