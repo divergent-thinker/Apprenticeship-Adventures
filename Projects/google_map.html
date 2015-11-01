@@ -1,40 +1,112 @@
 <!doctype html>
-<html>
-	<head>
-	<script src="http://maps.googleapis.com/maps/api/js"></script>
-	<!--add key in like this: <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBtR4lQPwGWUiq5BWIUia5tCcLH0OjlAT0"></script>-->
-	<!--After the first / and before the ? is the URL path and after the ? is a query parameter-->
-	<script>
-	function initialize() {
-	  	var mapProp = {
-	    center:new google.maps.LatLng(29.5, 52.508742),
-	    zoom:7,
-	    mapTypeId:google.maps.MapTypeId.SATELLITE
-	  };
-	  	var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+<html class="no-js" lang="en">
+  <head>
+    <meta name="description" content="An adventure into software development"/>
+    <meta name="keywords, programming, software development, software craftswoman apprenticeship" content="software development, apprentice"/>
+    <meta http-equiv="author" content="Helen Taylor"/>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Apprenticeship Adventures | Google Map</title>
+    <link rel="stylesheet" href="../css/foundation.css" />
+    <link rel="stylesheet" href="../css/custom.css" />
 
-	  	var marker=new google.maps.Marker({
-		position:new google.maps.LatLng(29.9137472, 52.8855472),
-		});
+    <script src="../js/vendor/modernizr.js"></script>
+    <script type="text/javascript" src="../js/site.js"></script>
+    <script src="http://maps.googleapis.com/maps/api/js"></script>
+    <script src="../js/simple_googlemap.js"></script>
+  </head>
+  <body>
+    
+  <div class="row">
+    <div class="small-12 medium-6 large-12 columns">
+      <ul class="right button-group">  
+      <li><a href="../index.html" class="small button">Home</a></li>
+      <li><a href="projects.html" class="small button">Projects</a></li>
+      <li><a href="../Compsci/compsci.html" class="small button">CompSci</a></li>
+      <li><a href="../Language/language.html" class="small button">Language</a></li>
+      <li><a href="../Tools/tools.html" class="small button">Tool Belt</a></li>
+      </ul> 
+     </div>
+   </div>
+  <!--End of the navigation-->
 
-		marker.setMap(map);
+  <div class="row">
+    <div class="small-12 medium-6 large-12 columns">
+      <h1><em>Simple Google Map<em></h1>
+    </div>
 
-		var infowindow = new google.maps.InfoWindow({
-    	content: "Tall-e Bakun A"
-  		});
+  <!--Title-->
+  <div class="row">
+    <div class="small-12 medium-6 large-12 columns">
+      <div id="slider">
+      <img src="http://lorempixel.com/1000/50/abstract/8/" alt="holding image"/>
+      </div>
+    
+      <hr/>
+    </div>
+  </div>
+  <!--header image-->
 
-		marker.addListener('click', function() {
-    	infowindow.open(map, marker);
-  });
+  <div class="row">
+    <div class="small-12 medium-6 large-12 columns">
+      <div>
+        <h3>Google maps</h3>
+        <p>I embedded the below map using Google's map API.</p>
 
+      </div>
+    </div>
+  </div>
+  <!--introduction-->
 
-	}
+  <div class="row">
+    <div class="small-12 medium-6 large-6 columns">
+      <div id="googleMap" style="width:500px;height:380px;">
+      </div>
+    </div>
+<!--End of code editor-->
 
-	google.maps.event.addDomListener(window, 'load', initialize);
-	</script>
-	</head>
+    <div class="small-12 medium-6 large-6 columns">
+      
+    </div>
+  </div>
+<!--End of canvas and drawing pad-->
 
-	<body>
-	<div id="googleMap" style="width:500px;height:380px;"></div>
-	</body>
+ 
+  <div class="row">
+    <div class="large-12 columns">
+      <div class="panel">
+      </div> 
+    </div>
+  </div>
+ 
+   
+  <footer class="row">
+    <div class="large-12 columns">
+      <hr/>
+      <div class="row">
+        <div class="large-6 columns">
+          <p>&copy Copyright Helen Taylor 2015</p>
+        </div>
+        <div class="large-6 columns">
+          <ul class="inline-list right"> 
+              <li><a href="../Projects/projects.html">Projects</a></li>
+              <li><a href="../CompSci/compsci.html">CompSci</a></li>
+              <li><a href="../Language/language.html">Language</a></li>
+              <li><a href="tools.html">Tool Belt</a></li>
+          </ul>
+        </div>
+      </div>
+    </div> 
+  </footer>
+  
+  <script src="https://cdn.jsdelivr.net/ace/1.2.0/min/ace.js" type="text/javascript" charset="utf-8">
+  </script>
+  <script>
+    var editor = ace.edit("editor");
+    editor.setTheme("ace/theme/monokai");
+    editor.getSession().setMode("ace/mode/javascript");
+    editor.setOptions({maxLines: 80});
+  </script>  
+  
+  </body>
 </html>
