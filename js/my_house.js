@@ -1,4 +1,10 @@
-/* This is an impure function as it affects what is outside of it i.e. it has side-effects. 
+
+
+
+	
+function doodle (processing) {
+
+  /* This is an impure function as it affects what is outside of it i.e. it has side-effects. 
 function starBrighter () {
     star.R = star.R + 0.005;
     star.G = star.G + 0.005;
@@ -43,9 +49,9 @@ var starPositions = [
   ];
 
 function drawStar(x, y) {
-  noStroke();
-  fill (star.R, star.G, star.B);
-  ellipse (x, y, 5, 5);
+  processing.noStroke();
+  processing.fill (star.R, star.G, star.B);
+  processing.ellipse (x, y, 5, 5);
 }
 
 function drawStarField (starPositions) {
@@ -82,27 +88,27 @@ starPositions.forEach(function(bob){
 }
 
 var sky = {
-	  R: 138,
-	  G: 153,
-	  B: 245
-	};
+    R: 138,
+    G: 153,
+    B: 245
+  };
 
 /*An object 'star' created with Javascript object notation
  *
 */
 var star = {
-	  R: 138,
-	  G: 153,
-	  B: 245
-	};
+    R: 138,
+    G: 153,
+    B: 245
+  };
 
-	/*
+  /*
 function fadeSky 
-  */	
+  */  
 var topLight = 0;
 
 var bottomLight = 0;
-		
+    
 var doorPositions = [
     [20, 40, 20, 0],
     [20, 40, 20, 0],
@@ -169,17 +175,17 @@ function drawDoor () {
       break; 
   }
 
-  push();
-    translate (290, 400);
-    fill (0);
-    quad (0, 0, 0, 40, 20, 40, 20, 0);
-  	fill (127, 22, 55);
-	  quad (0, 0, 0, 40, 
-	        doorPositions[doorPositionIndex][0], 
-	        doorPositions[doorPositionIndex][1],
-	        doorPositions[doorPositionIndex][2],
-	        doorPositions[doorPositionIndex][3]);
-	pop();
+  processing.pushMatrix();
+    processing.translate (290, 400);
+    processing.fill (0);
+    processing.quad (0, 0, 0, 40, 20, 40, 20, 0);
+    processing.fill (127, 22, 55);
+    processing.quad (0, 0, 0, 40, 
+          doorPositions[doorPositionIndex][0], 
+          doorPositions[doorPositionIndex][1],
+          doorPositions[doorPositionIndex][2],
+          doorPositions[doorPositionIndex][3]);
+  processing.popMatrix();
 }
 
 /*This first line defines an object. This is a particular datastructure, 
@@ -211,27 +217,23 @@ function doorClicked () {
 
 
 function drawSails () {
-  var now = millis();
-  push(); //adding a matrix
-    translate (300, 180);
-    rotate(now/1000); //rotate and translate are on the same matrix. 
-    fill (255, 183, 51, 200);
+  var now = processing.millis();
+  processing.pushMatrix(); //adding a matrix
+    processing.translate (300, 180);
+    processing.rotate(now/1000); //rotate and translate are on the same matrix. 
+    processing.fill (255, 183, 51, 200);
     
     //blade++ (shorthand)
     var numblades = 5;
     for (var blade=0; blade<numblades; blade=blade+1) {
-      noStroke();
-      quad(30,-29, 30,29, 170,29,170,-29);
-      stroke (0);
-      line(0,0,170,0);
-      rotate (TWO_PI/numblades);
+      processing.noStroke();
+      processing.quad(30,-29, 30,29, 170,29,170,-29);
+      processing.stroke (0);
+      processing.line(0,0,170,0);
+      processing.rotate (processing.TWO_PI/numblades);
     }
-	pop(); //removes a matrix
+  processing.popMatrix(); //removes a matrix
 }
-
-
-	
-function doodle (processing) {
 
   processing.setup = function () {
 	/* processing.size: Size is a method (CHECK) of the object
