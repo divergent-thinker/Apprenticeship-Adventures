@@ -13,6 +13,7 @@
     <script src="../js/vendor/modernizr.js"></script>
     <script type="text/javascript" src="../js/site.js"></script>
     <script type="text/javascript" src="../js/processing.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
   </head>
   <body>
     
@@ -105,12 +106,70 @@
   
   <script src="https://cdn.jsdelivr.net/ace/1.2.0/min/ace.js" type="text/javascript" charset="utf-8">
   </script>
-  <script>
+  <script type="text/javascript">
+  /*$ refers to JQuery. We can show this by using 
+   *$ === jQuery which will evaluate to TRUE. 
+   */
+  $(function(){
+    /*We're using JQuery (i.e. $) to ensure that we're  
+     *only call this function once the page is fully 
+     *loaded. 
+      Ace is the library. We're calling the edit function of the ACE API to create a new Ace editor from the element on the page with an ID of "editor" which we keep as a string. So ace.edit is a function given to us by the ace API. This takes in an ID and turns the element of the ID into an ACE editor. As a return value it gives us an editor handle that we can call.
+     */ 
     var editor = ace.edit("editor");
+
+    /*In the next line, we're using this 'editor' handle. 
+     *We're using the setTheme function and passing in as 
+     *a string the name of the theme that we want to use. 
+     */
     editor.setTheme("ace/theme/monokai");
+
+    /*Here again, we're using the editor handle. This 
+    *time we are using the function get.Session and the 
+    *method? CHECK setMode and passing in the mode that 
+    *we want the editor to be set to. In this case 
+    *Javascript, thus ensuring that we get the syntax
+    * highlighting appropriate for Javascript.
+    */
     editor.getSession().setMode("ace/mode/javascript");
+
+    /*Again, using the hangle editor, we're using the 
+    *function estOptions and passing in the max number of
+    * lines. CHECK WHY HAS CURLY BRACKETS. 
+    */
     editor.setOptions({maxLines: 80});
-  </script>  
+
+    /*Here we are creating a function, which we've called
+     * handleError (to use as a handle later). Based on 
+     *the jQuery documentation, we need to pass in 3 
+     *arguments. If there is an error, an alert box will
+     * appear with these parameters concatonated inside 
+     *of it. 
+     */
+
+    function handleError(jqXHR, textStatus, errorThrown){
+      alert (textStatus + ' ' + errorThrown);
+    }
+
+    /*Here we are creating a function, which we've called handleSuccess (to use as a handle later). This function will be executed if it works and these parameters will be displayed in the console. Next we use the the handle editor again. Because it is defined outside of the function, the code inside the function has access to the handle. So, we can talk to the editor and say, setValue (this is a function on the editor that we can find in the docs) to data which can be whatever we want. In this case we're setting the value to the data to the document we just called. Data refers to the content of the file that we have called using ajax. 
+    textStatus is the status, as a string, a description of the status of the request. So in this case test status as shown in the console can only be success, as if it failed the function would not be executed. 
+    jqXHR is the request handle. It is the request object. This keeps all the information or the request and all the behaviour of the request. 
+    */
+
+    function handleSuccess(data, textStatus, jqXHR){
+      console.log (data, textStatus, jqXHR);
+      editor.setValue(data);
+    }
+
+    /*Here we have jQuery, using the function (CHECK) ajax. We are passing in the url of the file that we want to request from the server (although here it's just a local file). Then we tell ajax, this is how you handle errors, this is how you handle successes.  
+    */
+    $.ajax("../js/my_house.js"), {
+      error: handleError,
+      success: handleSuccess
+    });
+  });
+
+  </script> 
   
   </body>
 </html>
