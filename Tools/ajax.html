@@ -1,0 +1,73 @@
+---
+layout: template_tools
+title: AJAX
+---
+
+<div class="row">
+ 	<div class="small-12 medium-12 large-12 columns">
+		<h2>Why is AJAX useful?</h2>
+		<p>When your browser makes a request to the server for a webpage, the browser on the machine is acting as a client. The server is the machine that is serving up this information i.e. the webpage. When you ask for the page, the client makes a request to the server, and the server returns a page. 
+
+		<p>Imagine that you have a photo albumn on your page with thumbnails. In the first view you may not be ablet to see all of the thumbnails. To see more of them you'll need to make a request to the server and reload the entire page. So you're therefore requesting a lot of information you actually already have.</p>
+
+		<p>With AJAX, the server doesn't need to send you teh whole page, it just sends you the pieces that you need, in this example more thumbnails.
+	</div>
+</div>
+
+<div class="row">
+	<div class="small-12 medium-6 large-6 columns">
+		<h2>What is AJAX?</h2>
+		<p>AJAX stands for <em>asynchronous Javascript and XML</em>. Ajax relies primarily on two technologies to work: JavaScript and the XMLHttpRequest. </p>
+		<p><em>Asynchronous</em> means that the client can request new pieces of information from the server at any time, it doesn't have to wait for a page to reload. A new request can be triggered by an event e.g. clicking a button, hovering over an image etc. </p>
+		<p>Javascript handles the events that trigger a new request, makes the requests for new data to the server, and takes care of updating only the part of the document that needs to change.</p>
+		<p> <b>From Lynda, need to reword</b>: " JavaScript talks to the server through a set of programming methods called an API and uses what's called an XHR or XML HTTP request. This is where the X in AJAX comes from. The XHR API lets the browser send and request data from a server. This can be a bit confusing because a lot of people think of XML as a language used to describe data that's a lot like HTML. Sometimes people assume that the X in AJAX means that the data from an AJAX request has to be in XML, but the data that gets transferred to and from the server can be in any format, and it's usually either a text file, HTML, or a JavaScript object, like JSON. SUMMARY:  So AJAX is really just a fancy term for a technology that lets you build pages that update without requiring a page reload. JavaScript does most of the heavy lifting with AJAX, and it uses the XHR API to handle the communication between the client and the server. "</p>
+	</div>
+
+
+	<div class="small-12 medium-6 large-6 columns">
+		<p>A request takes time to go to the server and come back with the information you need. So, what you get form a jQuery.ajax request is an object that refers back to the request, not the result of that request. So once you've done a request, you need to be able to say, what do I do, once a request has finished. This is where the settings come in. 
+		So you have error and success. Those two things accept a function</p>
+
+		<p>$ refers to JQuery. So if you enter $ === jQuery in the console, it will evaluate to TRUE. Just to make writing code easier. </p>
+		<p>CHECK: JQuery will only be executed once it has finished loading the page. </p>
+		<p> $ can be given a function e.g. <code>$(function () { </br>
+		$("#")</br>
+		});</br>
+		</code>
+		<p>So this <code>$("#foobar")</code> is the equivilent to getElementById. It's also like CSS selectors. So you could do <code>$("#foobar.buz")</code> and it would only select elements with an ID of foobar and a class of buz. </p>
+		<p>You could go further than this and select data. So you could do <code>$("foobar.buz[data-xyz+123]")</code> which would select <code><div id="foobar" data-xyz+="123"></code>. 
+		, but it can also be given a selector string
+	</div>
+</div>
+
+<div class="row">
+ 	<div class="small-12 medium-6 large-6 columns">
+
+		<h2>How do I set it up?</h2>
+
+		<p>First add this script to your html page. This line includes the AJAX file. This file is hosted on the Google server and we can link to it using this line of code:
+		<code><script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script></code>
+		</p>
+	</div>
+
+	<div class="small-12 medium-6 large-6 columns">
+		<p>Lorem ipsum 
+		</p>
+	</div>
+</div>
+
+<div class="row">
+ 	<div class="small-12 medium-12 large-12 columns">
+	<h2>References</h2>
+	<p>The content of this page has is in part based on the following references:</p>
+		<ul>
+			<li><a href"http://www.codeproject.com/Articles/31155/Ajax-Tutorial-for-Beginners-Part">Code Project</a></code></li>
+			<li><a href"http://www.lynda.com/Developer-tutorials/JavaScript-and-AJAX/114900-2.html?srchtrk=index:1%0Alinktypeid:2%0Aq:ajax%0Apage:1%0As:relevance%0Asa:true%0Aproducttypeid:2">Lynda course: JavaScript and AJAX with Ray Villalobos</a></li>
+			<li><a href"#"></a></li>
+			<li><a href"#"></a></li>
+			<li><a href"#"></a></li>
+			<li><a href"#"></a></li>
+			<li><a href"#"></a></li>
+		</ul>
+	</div>
+</div>
