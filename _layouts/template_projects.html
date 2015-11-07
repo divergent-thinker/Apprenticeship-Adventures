@@ -1,0 +1,82 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta name="description" content="An adventure into software development"/>
+    <meta name="keywords, programming, software development, software craftswoman apprenticeship" content="software development, apprentice"/>
+    <meta http-equiv="author" content="Helen Taylor"/>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{ page.title }}</title>
+    <link rel="stylesheet" href="../css/foundation.css" />
+    <link rel="stylesheet" href="../css/custom.css" />
+    <script src="../js/vendor/modernizr.js"></script>
+    <script type="text/javascript" src="../js/site.js"></script>
+    <script src="http://maps.googleapis.com/maps/api/js"></script>
+    <script src="../js/simple_googlemap.js"></script>
+    <script type="text/javascript" src="../js/processing.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  </head>
+  <body>
+    
+    <div class="row">
+      <div class="small-12 medium-7 large-12 columns">
+        <ul class="right button-group">  
+        <li><a href="../index.html" class="small button">Home</a></li>
+        <li><a href="projects.html" class="small button">Projects</a></li>
+        <li><a href="../Compsci/compsci.html" class="small button">CompSci</a></li>
+        <li><a href="../Language/language.html" class="small button">Language</a></li>
+        <li><a href="../Tools/tools.html" class="small button">Tool Belt</a></li>
+        </ul> 
+      </div>
+    </div>
+  <!--End of the navigation-->
+ 
+  <div class="row">
+    <div class="small-12 medium-6 large-12 columns">
+      <h1><em>{{ page.title }}<em></h1>
+    </div>
+  </div>
+  <!--Title-->
+
+  <div class="row">
+    <div class="small-12 medium-6 large-12 columns">
+      <div id="slider">
+      <img src="http://lorempixel.com/1000/50/abstract/7/" alt="holding image"/>
+      </div> 
+    </div>
+  </div>
+   <!--header image-->
+
+  
+{{content}}
+
+  <footer class="row">
+    <div class="large-12 columns">
+      <hr/>
+      <div class="row">
+        <div class="large-6 columns">
+          <p>&copy Copyright Helen Taylor 2015</p>
+        </div>
+        <div class="large-6 columns">
+          <ul class="inline-list right"> 
+              <li><a href="projects.html">Projects</a></li>
+              <li><a href="../Compsci/compsci.html">CompSci</a></li>
+              <li><a href="../Language/language.html">Language</a></li>
+              <li><a href="../Tools/tools.html">Tool Belt</a></li>
+          </ul>
+        </div>
+      </div>
+    </div> 
+  </footer>
+  
+  <script src="https://cdn.jsdelivr.net/ace/1.2.0/min/ace.js" type="text/javascript" charset="utf-8">
+  </script>
+  <script>
+    var editor = ace.edit("editor");
+    editor.setTheme("ace/theme/monokai");
+    editor.getSession().setMode("ace/mode/javascript");
+    editor.setOptions({maxLines: 80});
+  </script>  
+  
+  </body>
+</html>
