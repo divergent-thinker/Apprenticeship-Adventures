@@ -147,7 +147,7 @@ var doorCurrentState = doorStates.SHUT;
 
 
 function onDoor () {
-  return (mouseX>280 && mouseX<310 && mouseY>400 && mouseY<440);
+  return (processing.mouseX>280 && processing.mouseX<310 && processing.mouseY>400 && processing.mouseY<440);
 }
 
 
@@ -240,7 +240,7 @@ function drawSails () {
 	 * processing and the arguments passed in here set the
 	 * size of the canvas.
 	 */
-		processing.size (420, 420);
+		processing.size (500, 500);
 	/* processing.background: Background is another method (CHECK)
 	 * of the object processing. The arguments passed in 
 	 * here are the RGB values and set the background
@@ -315,18 +315,18 @@ function drawSails () {
    	 */  
   
   function inTopWindow () {
-    var intop = (mouseX>290 && mouseX<310 && mouseY>260 && mouseY<280);
+    var intop = (processing.mouseX>290 && processing.mouseX<310 && processing.mouseY>260 && processing.mouseY<280);
     return intop;
   }
   
   function inBottomWindow () {
-    var inBottom = (mouseX>290 && mouseX<310 && mouseY>320 && mouseY<340);
+    var inBottom = (processing.mouseX>290 && processing.mouseX<310 && processing.mouseY>320 && processing.mouseY<340);
     return inBottom;
   } 
   
   function toggleTopLight() {
     if (topLight===0) {
-  	  topLight = color (255, 183, 51);
+  	  topLight = processing.color (255, 183, 51);
   	} else {
   	  topLight = 0;
     }
@@ -334,7 +334,7 @@ function drawSails () {
   
   function toggleBottomLight() {
     if (bottomLight===0) {
-      bottomLight = color (255, 183, 51);
+      bottomLight = processing.color (255, 183, 51);
     } else {
       bottomLight = 0;
     }
