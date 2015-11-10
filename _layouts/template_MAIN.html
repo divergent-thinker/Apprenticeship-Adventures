@@ -1,0 +1,41 @@
+<!doctype html>
+<html class="no-js" lang="en">
+   {% include head.html %}
+
+  <body>  
+    <div class="row">
+      <div class="small-12 medium-7 large-12 columns">
+        {% include nav.html %}
+      </div>
+    </div>
+  <!--End of the navigation-->
+ 
+  <div class="row">
+    <div class="small-12 medium-6 large-12 columns">
+      <h1><em>{{ page.title }}</em></h1>
+    </div>
+  </div>
+  <!--Title-->
+
+  <div class="row">
+    <div class="small-12 medium-6 large-12 columns">
+      <div id="slider">
+      <img src="http://lorempixel.com/1000/50/abstract/7/" alt="holding image"/>
+      </div> 
+      <hr/>
+    </div>
+  </div>
+   <!--header image-->
+ 
+{{content}}
+
+<!--footer include-->
+ {% include footer.html %}
+  
+  <script src="https://cdn.jsdelivr.net/ace/1.2.0/min/ace.js" type="text/javascript" charset="utf-8">
+  </script>
+  <script src="../js/ace_editor.js" type="text/javascript" charset="utf-8">
+  </script> 
+  
+  </body>
+</html>

@@ -1,0 +1,33 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  {% include head.html %}
+  <body>
+   
+    <div class="row">
+      <div class="small-12 medium-3 large-3 columns">
+      <h1>{{ page.title }}</h1>
+    </div>
+    <div class="small-12 medium-7 large-9 columns">
+        {% include nav.html %}
+      </div>
+    </div>
+  <!--End of the navigation-->
+
+  <div class="row">
+    <div class="small-12 medium-6 large-12 columns">
+      <div id="slider">
+      <img src="http://lorempixel.com/1000/50/abstract/7/" alt="holding image"/>
+      </div> 
+      <hr/>
+    </div>
+  </div>
+
+
+  {{content}}
+
+   
+  {% include footer.html %}
+    
+  
+  </body>
+</html>
