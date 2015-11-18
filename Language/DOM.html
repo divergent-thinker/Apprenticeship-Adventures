@@ -1,0 +1,154 @@
+---
+layout: template_MAIN
+title: Document Object Model
+---
+
+
+<div class="row">
+	<div class="small-12 medium-4 large-4 columns">
+		<h3>What is the Document Object Model?</h3>
+		<h4>The Document</h4>
+		<p>The <b>Document</b> simply refers to the webpage.</p>
+		<p>An <b>Object</b> is just a thing that makes to sense to treat as an individual piece. Sometimes they contain other objects. </p>
+		<p>The <b>Model</b> part of it just means taking something complex and making it abstract, making it simple. In this case, taking the HTML document and creating a tree structure. Each element in this tree structure is descibed as a <b>node</b>. The nodes also have relationships, described as <b>parents</b> and <b>siblings</b>. So the model is an agreed upon set of terms that describe exactly how the pieces(nodes) of a webpage (the document) interact.
+	</div>
+	<div class="small-12 medium-4 large-4 columns">
+		<p>The DOM is the API that gives CSS and Javascript a way to modify an existing document. This allows you to write Javascript for any website. For example, you can say you want to get the text of the title, or the second paragraph, or get all the list item elements in the last unordered list, find an image with the ID of logo and change it, and so on.</p>
+		<p>The DOM is the way to reach into the page from our script and the way our page can reach into our script. </p>
+		<h3>Working with nodes</h3>
+		<p>There are actually 12 different kinds of nodes within a DOM. These include:</p>
+		<ol>	
+			<li>elements i.e tags e.g. <code><h1></h1></code></li>
+			<li>attributes within an element e.g. <code>src</code>attribute of an image tag, or an ID or class attribute.</li>
+			<li>blocks of text</li>
+			<li>comments</li>
+		</ol>
+		<p>Remember that a class can be added to multiple elements, but an ID should only be applied to one. It should be unique. </p>
+	</div>
+	<div class="small-12 medium-4 large-4 columns">
+	<h4>Accessing DOM elements</h4>
+	<p>To grab an element using it's ID, we use the following line of code, passing in the name of the ID attribute we want: <code>document.getElementById=("abc")</code>. We create a variable, and set it to <code>var myElement = document.getElementById("abc")</code>. This variable then provides a <em>handle</em> to that place in the DOM. 
+	</p>
+	<p>If the element we're after doesn't have an ID, we can also use <code>document.getELementsByTagName("li");</code> This is going to go through our document and get any element nodes that are <code>li</code> elements. We can store these in a variable again i.e. var myListItems = document.getElementsByTagName ("li");</p>
+
+	<p>How does it store these in one variable? It makes an array. So it makes an array called myListItems, it finds all the list items in the entire document, and then in each position of the array, we'll have a handle to that particular place in the DOM e.g. myListItem(2). 
+	</p>
+	</div>
+</div>
+
+<div class="row">
+	<div class="small-12 medium-4 large-4 columns">	
+		<p>If you want to get elements from a particular part of the document, you can use that instead of document in the code. For example. You can use:
+		<code>var myListItems = document.getElementsByTagName("li");</code> to get all the list items. What if you only want the list items from an <code><ol></code> with the ID of "nav". To do this you would use a two stage process. Firstly, make a variable for this overall element i.e.</br> 
+		<code>var navList = document.getElementById("nav");</code> 
+		then you would search within that element for the <code><li></code> elements by using <code>var navListItems = navList.getElementByTagName("li");</code>
+		</p>
+	</div>
+	<div class="small-12 medium-4 large-4 columns">	
+	<h4>Changing DOM attributes</h4>
+	<p>For example, how do we change the href element value in <code><a href="http://www.apprentice.com">click here</a></code> to a different value?
+	</p>
+	<p>There are two methods in Javascript that we can use to directly work with attributes. These are:
+		<ol>
+			<li>getAttribute</li>
+			<li>setAttribute</li>
+		</ol>
+	</p>
+	<h4>getAttribtue</h4>
+	<p>for this we need to say what attribute, passed in as a string in "" e.g. class, title, src:
+		<code>myElement.getAttribute("src");</code></p>
+	</div>
+
+	<div class="small-12 medium-4 large-4 columns">	
+	<h4>setAttribute</h4>
+	<p>for this we need a bit more information, this time we need to name the attribute we're interested in but also provide a new value. e.g. </br>
+	<code>myElement.getAttribute("align", "left");</code></br>
+	<b>If the attribute doesn't currently exist it 
+		will be created.</b></p>
+
+	<h4>Access the content for specific tags</h4>
+	<p>First of all get the ID of the tag whose content you want to change, then store this in a variable e.g. </br>
+		<code>mainTitle = document.getElementById("mainTitle");</code></p>
+		<p>To print out the HTML of that tag we can then do:
+			<code>console.log(mainTitle.innerHTML);</code>
+		</p>
+	</div>
+</div>
+
+<div class="row">
+	<div class="small-12 medium-4 large-4 columns">	
+	<h4>Create DOM elements</h4>
+		<p>Creating content requires two steps. 1. creating the DOM elements and 2. add that newly created element to the right place in the document.
+			<ol>
+				<li>Create element using <code>document.createELement("li");</code></li>
+			<li>Next we need to call the appendChild method of the element.</li>
+		</ol>
+	</p>
+	<p>Next we probably want to add some text to this element. 
+		To do this we use the <code>createTextNode</code> method to create text in this node. Once again we use the <code>appendChild</code> method except for 
+		this time we're adding it to the element we just created.
+	</p>
+	</div>
+
+	<div class="small-12 medium-4 large-4 columns">	
+		<p>This is the most exact method for attaching text. An alternative 
+			is to use <code>insertBefore</code>. <code>appendChild</code> will always add that new list item right at the end.</p>
+			<p>If we want it as the second rather than the last list item for example we 
+				would need to do the same as before, i.e. create the new element first.
+				e.g.
+				<code>var myNewElement = document.createElement("li");</code>
+				<code>var secondElement = myElement.getElementsByTagName ("li")[1];</code>
+				<code>myElement.insertBefore(myNewElement, SecondItem);</code></p>
+			<p>Here we pass in two parameters - the new element that we've made, and the placed we want to insert it before.</p>
+
+
+	</div>
+
+	<div class="small-12 medium-4 large-4 columns">	
+		<p>In summary, most of the time you'll use appendChild but insetBefore can also come in useful if this is not specific enough.</p>
+	</div>
+</div>
+
+<div class="row">
+	<div class="small-12 medium-4 large-4 columns">	
+		<div id="exercise">
+		</div>
+	</div>
+
+	<div class="small-12 medium-8 large-8 columns">	
+		<div id="editor">
+
+		</div>
+	</div>
+
+</div>
+
+
+
+
+<div class="row">
+	<div class="small-12 medium-12 large-12 columns">	
+	<h4>References</h4>
+	<p>The content of this page is in part based on the following references:</p>
+	<ul>
+		<li><a href"http://www.lynda.com/JavaScript-tutorials/What-DOM/81266/87536-4.html">Lynda Javascript tutorial</a></li>
+	</ul>
+</div>
+
+<script type="text/javascript">
+	{% include ace_errorSuccess.js %}
+	
+    $.ajax("../js/exercise_js_events.js", {
+      error: handleError,
+      success: handleSuccess
+    });
+  });
+ </script> 
+
+
+
+
+
+
+
+
