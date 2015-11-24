@@ -1,0 +1,96 @@
+---
+layout: template_MAIN
+title: Javascript: Best Practices
+---
+
+<div class="row">
+  <div class="small-12 medium-8 large-12 columns">
+    <p>This page outlines some best practices and tools for styling Javascript, minimising the number of script tags, minifying code and checking code quality. </p>
+    <hr/>
+  </div>
+</div>
+  <!--introduction-->
+
+
+<div class="row">
+  <div class="small-12 large-4 columns">
+    <h2>Understanding Javascript Style</h2>
+    <h3>Variables</h3>
+    <p>
+      <ul>
+      <li>..</li>
+      <li>..</li>
+      <li>Use camelCase for variable names</li>
+      </ul>
+    </p>
+
+    <h3>Brace style</h3>
+    <p>Open curly braces on the same line as the key word.</p>
+    <code>
+    if (x) {</br>
+      <!--...--></br>
+    } else {</br>
+      <!--...--></br>
+    }</br>
+    </code>
+  </div>
+    <!--column 1-->
+
+  <div class="small-12 large-4 columns">
+    <h3>Functions</h3>
+    <p>Best practice to define functions before they are called. You don't have to in Javascript but it's best practice to do so.</p>
+
+    <p>Always use semi-colons to end a statement</p>
+
+    <p>Always use <em>var</em> when you declare a variable.</p>
+
+    <h3>Script tags</h3>
+    <p>Put the JavaScript script tag right before the closing body tag that just links to a separate JavaScript file. Two things to remember:
+      <ol>
+      <li><b>Keep the number of script tags to a miniumum.</b>
+      Every JavaScript file you link to is a separate request the browser needs to make to the web server.The browers will make a call to the serve for the first JS file, then once that has <em>finished</em> downloading it will call the next one. It downloads sequentially rather than simultaneously. Therefore, more files you have the more requests it needs to make and the slower your page will be to load. It's therefore best to combine JavaScript files where possible rather than having multiple small files. You should have as few JavaScript files as possible. 
+      </li>
+
+      <li><b>The order of the script tags matters.</b>
+      If you have a file of JavaScript that calls a function in a second JavaScript file, you need to ensure that file is loaded before the code that tries to call it. This is very common with libraries.
+      e.g. It's best to load the jQuery library first, before any JavaScript that tries to use jQuery. The same holds for other dependencies.
+      </li>
+      </ol>
+      </p>
+  </div>
+    <!--column 2 with editor-->
+
+  <div class="small-12 large-4 columns">
+    <h2>Minifying your code</h2>
+    <p>Minificaiton compacts code. e.g. removes comments, renames variable names to shorter names, puts code on one line.</p>
+    <b>Minification improves load time by reducing the file size</b>
+    <p>Tools for minification include JSMin, YUI Compressor and <a href="http://closure-compiler.appspot.com/home">Google Closure Compiler</a>. Many of these are command line tools, written in C or in Java. You can download them and run them from the command line. There are a couple that can be accessed over the web, like Google's<a href="http://closure-compiler.appspot.com/home">Closure Compiler</a>. You can use the 'Advanced' setting to make it much smaller. The Google tool also does some optimisation. Once you've minified your code you can copy the code. 
+    <p>Minification makes the script much harder to read so you onlly do this once you're happy with teh script at the end. YOu should also keep a copy of your non-minified code. You can unminifiy to an extent, e.g. get whitespace back, but you cannot get old variable names back or the comments. </p>
+
+    <p>It's very common to find 3rd party Javascript libraries available to downlaod in both minified version and also non-minified versions (good if you want to read the code).</p>
+  </div>
+</div>
+
+<div class="row">
+  <div class="small-12 large-8 columns">
+    <h2>Javascript code checkers</h2>
+    <p>You can run your JS through another programme to check it's quality. THe best code quality checker is <a href="jslint.com">JSLint</a>, created by Douglas Crockford (JS architect at Yahoo). You paste your code in and click the 'JSLint' button to check it.
+    </p>
+
+    <p>JS Lint is very fussy and will point out ALL of the imperfections. There are options at the bottom to tell JS Lint to tolerate certain things. e.g. 'Assume a browser' tells it to assume you're in a browser (since JS might be run elsewhere).</p>
+  </div>
+
+  <div class="small-12 large-4 columns">
+  </div>
+
+</div>
+
+<div class="row">
+  <div class="small-12 medium-12 large-12 columns">
+    <h2>References</h2>
+      <p>The content of this page has is in part based on the following references:</p>
+      <ul>
+      <li><a href"#">Lynda: Essential Javascript</a></li>
+      </ul>
+  </div>
+</div>
