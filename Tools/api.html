@@ -1,0 +1,72 @@
+---
+layout: template_MAIN
+title: APIs
+---
+
+<div class="row">
+  <div class="small-12 medium-8 large-12 columns">
+    <p>Application Programming Interface is usually abbreviated to API.</p>
+    <p>It's something that allows one piece fo software to talk to another. An API is the messanger 
+    that takes requests, tells a system what you 
+    want to do and then returns the results back to you. </p>
+    <hr/>
+  </div>
+</div>
+<!--introduction-->
+
+
+<div class="row">
+  <div class="small-12 large-4 columns">
+    <h3>REST APIs</h3>
+    <p>A REST API stands for Representational State Transfer. <em>Usually</em>
+    this works the same way as a website does. You make a call from a client 
+    to a server to get data back over the HTTP protocal.</p>  
+  </div>
+    <!--column 1-->
+
+  <div class="small-12 large-8 columns">
+    <h3>Google maps API</h3>
+    <p>The Google maps API can return data in a number of formats.
+    .e.g. can input the url maps.googleapis.com/maps/api/geocode/json</p>
+    <p>In this case the server that we're calling is maps.googleapis.com. 
+      The particular resource (we've drilled down) is maps resource, then the api resource, then 
+      the geocode resource and the JSON resource.  Then we could add parameters 
+      e.g. we could put <code>maps.googleapis.com/maps/api/geocode/json?address=chicago&sensor=false</code>. This will give us a JSON response with the 
+      information we need. We could then take that data and pass it into another API e.g. instragram to grab a photo from Chicago. </p>
+    <p>There are thousands of APIs that you can tap into, take their data and use it 
+     pass it to another API. Many websitse have some kind of API that you can 
+     use in order to consume their data. Check out: 
+     <a href"http://www.programmableweb.com/">ProgrammableWeb</a></p>
+  </div>
+</div>
+<!--end of column 2-->
+
+<div class="row">
+  <div class="small-12 large-4 columns">
+    <h3>Writing data to APIs: HTTP Request Methods</h3>
+     <p>In order to write data to APIs you need to know a bit more about
+      HTTP request methods. Two of the mains ones are <b>GET</b> 
+      and <b>POST</b>. A GET request is what you use to request data as discussed
+       above using these URL parameters in order to get data back from the API.
+       A POST request is for writing data to the API. The best practice is to 
+       put the data in the actual body of the request. To do this you can install 
+       an extension called 'Postman' client. See <a href"https://www.youtube.com/watch?v=7YcW25PHnAA">Postman demo</a>.
+  </div>
+
+
+<div class="row">
+  <div class="small-12 large-8 columns">
+
+  </div>
+</div>
+
+<div class="row">
+  <div class="small-12 medium-12 large-12 columns">
+  <h2>References</h2>
+  <p>The content of this page has is in part based on the following references:</p>
+    <ul>
+      <li><a href"https://www.youtube.com/watch?v=7YcW25PHnAA">REST API concepts adn examples (video)</a></li>
+      <li><a href"#"></a></li>
+    </ul>
+  </div>
+</div>
