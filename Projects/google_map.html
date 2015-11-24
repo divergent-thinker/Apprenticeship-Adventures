@@ -3,36 +3,43 @@ layout: template_MAIN
 title: Simple Google Map
 ---
 
+<div class="row">
+  <div class="small-12 medium-6 large-12 columns">
+      <h3>Google maps</h3>
+      <p>I embedded the below map using Google's map API.</p>
+  </div>
+</div>
+<!--introduction-->
 
-  <div class="row">
-    <div class="small-12 medium-6 large-12 columns">
-      <div>
-        <h3>Google maps</h3>
-        <p>I embedded the below map using Google's map API.</p>
+<div class="row">
+  <div class="small-12 medium-6 large-8 columns">
+    <div id="googleMap" style="width:500px; height:380px;">
+    </div>
+  </div>
+  <!--End of code editor-->
+
+  <div class="small-12 medium-3 large-4 columns">
+    <p>You can find
+      <a href="https://developers.google.com/maps/documentation/javascript/">
+        documentation for the Google map API</a> using Javascript. There are different 
+        APIs for different technologies.</p>
+    <p>To get started, you first need to add the script tag for the Google 
+      maps API: 
+      <code>script tag src="http://maps.googleapis.com/maps/api/js">script tag</code>
+    </p>
+    <p>To add parameters such as the key, put a '?', the name of the parameter, 
+    in this case 'key' then '=' followed by the value of the key.
+      e.g.<code>http://maps.googleapis.com/maps/api/js?key=AIzaSyAFjF79SXGdZcNM4yrNGdBhF1nd9nVhe2M></script></p>
+  </div>
+</div>
+    <!--Text to the right of the map.-->
+
+
+    <div class="row">
+      <div class="large-4 columns">
+        <p></p>
 
       </div>
     </div>
-  </div>
-  <!--introduction-->
 
-  <div class="row">
-    <div class="small-12 medium-6 large-6 columns">
-      <div id="googleMap" style="width:500px;height:380px;">
-      </div>
-    </div>
-<!--End of code editor-->
-
-    <div class="small-12 medium-6 large-6 columns">
-      
-    </div>
-  </div>
-<!--End of canvas and drawing pad-->
-
- 
-  <div class="row">
-    <div class="large-12 columns">
-      <div class="panel">
-      </div> 
-    </div>
-  </div>
- 
+<script src="../js/simple_googlemap.js"></script>
