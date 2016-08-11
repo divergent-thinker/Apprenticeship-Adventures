@@ -1,0 +1,41 @@
+---
+layout: template_MAIN
+title: Git & Github
+---
+
+
+  <div class="row">
+    <div class="small-12 medium-6 large-12 columns">
+      <div>
+        <h3>Git & Github</h3>
+        <p>Git is an open-source version control system. Git is a command-line tool, and Github is the hub for all Git activity, where developers can store their projects, network and collaborate.</p>
+
+      </div>
+    </div>
+  </div>
+  <!--introduction-->
+
+  <div class="row">
+    <div class="small-12 medium-3 large-8 columns">
+      <p><img src="../img/git_push_small.png"></p>
+    </div>
+
+    <div class="small-12 medium-6 large-4 columns">
+      <p>This image provides a visual summary of the different steps involved in add, commiting and pushing changes to Github.</p>
+    </div>
+  </div>
+<!--End of content row 1-->
+
+ 
+  <div class="row">
+  	<div class="small-12 medium-3 large-4 columns">
+      <p>This image provides a visual summary of the different steps involved in pulling the latest commits from Github.</p>
+    </div>
+
+    <div class="small-12 medium-6 large-8 columns">
+      <p><img src="../img/git_pull_small.png"></p>
+    </div>
+
+
+  </div>
+<!--End of content row 2-->
