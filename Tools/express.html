@@ -15,8 +15,28 @@ title: Express
 
 <div class="row">
   <div class="small-12 medium-3 large-8 columns">
-    <h3>Title</h3>
-    <p></p>
+    <h3>Basic routing</h3>
+    <p>Routing refers to determining how an application responds to a client request to a particular endpoint. This includes:
+      <ul>
+        <li>URI (or path) e.g. '/sites' and </li>
+        <li>a specific HTTP request method e.g.GET, POST, and so on).</li>
+      </ul>
+    </p>
+    <p>Each route can have one or more handler functions, which are executed when the route e.g. '/sites' is matched.</p>
+    <p>Route definition takes the following structure:
+      <code>app.METHOD(PATH, HANDLER)</code></p>
+      <ul>
+        <li><code>app</code> is an instance of express.</li>
+        <li><code>METHOD</code>is an HTTP request method, in lowercase</li>
+        <li><code>PATH</code> is a path on the server.</li>
+        <li><code>HANDLER</code> is the function executed when the route is matched.</li>
+      </ul>
+
+      <p>
+      e.g. </br> <code>app.get ('/sites', function (res, req) { </br> res.send('Hello World!');</br>
+    });
+  </code>
+    </p>
     
   </div>
 
