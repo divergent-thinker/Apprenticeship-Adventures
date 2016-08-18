@@ -7,7 +7,8 @@ title: HTTP
 <div class="row">
   <div class="small-12 medium-6 large-12 columns">
       <h3>HTTP</h3>
-      <p>HTTP stands for Hyper Text Transfer Protocol. A protocol is a ... (get bit from notebook)</p>
+      <p>HTTP stands for Hyper Text Transfer Protocol. A protocol is a set of formal rules describing how to transmit or exchange data, especially across a network.</p>
+      <p>In the case of the internet, you send a request via your client (e.g. your internet browser, or via your terminal using curl). The request is in HTTP and <a href="">consists of various parts</a>., sends a request e.g. ......../simulation (the domain is not necessary at this stage, this is only used to get . This request is sent to the server (after it's IP addess as been obtained)</p>
   </div>
 </div>
   <!--introduction-->
@@ -17,45 +18,42 @@ title: HTTP
     <h3>Documentation</h3>
     <p>Documentation for HTTP can be found here: 
       <a href="http://sqlite.org/lang_createtable.html">HTTP documentation</a>.</p>
+    <h4>Request Methods</h4>
+    
+
+  </div>
+
+  <div class="small-12 medium-6 large-4 columns">
     <h4>HTTP Status Codes</h4>
     <p>Status codes fall into XX main categories:
     <ol>
       <li>1XX INFORMATIONAL</li>
         <ul>
-          <li>Continue</li>
-          <li>Switching Protocols</li>
+          <li>100: Continue</li>
+          <li>101: Switching Protocols</li>
         </ul>
       <li>2XX SUCCESS</li>
         <ul>
-          <li>OK - Standard response for HTTP requests</li>
+          <li>200: OK - Standard response for HTTP requests</li>
           <li>....</li>
         </ul>
       <li>3XX REDIRECTION</li>
         <ul>
-          <li>.....</li>
+          <li>301: Move permanently: This and future requests should be directe to the given URL</li>
           <li>....</li>
         </ul>
       <li>4XX CLIENT ERROR</li>
-      <li>3XX REDIRECTION</li>
         <ul>
-          <li>.....</li>
-          <li>....</li>
+          <li>Bad request</li>
+          <li>Unauthorised</li>
         </ul>
       <li>5XX SERVER ERROR</li>
-      <li>3XX REDIRECTION</li>
+      The server failed to fulfil an apparently valid request.
         <ul>
-          <li>.....</li>
-          <li>....</li>
-        </ul>      
+          <li>500: Internal server error</li>
+        </ul>    
     </ol>
     </p>
-
-  </div>
-
-  <div class="small-12 medium-6 large-4 columns">
-    <h3>Creating a Database in your terminal</h3>
-    <p> 
-    <code>adipiscing elit. Morbi gravida dictum porttitor. Vivamus dapibus turpis a ligula ullamcorper, eu finibus quam dictum. Fusce </code></p>
   </div>
 </div>
 <!--End of content row 1-->
