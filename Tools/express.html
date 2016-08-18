@@ -7,14 +7,22 @@ title: Express
 <div class="row">
   <div class="small-12 medium-6 large-12 columns">
       <h3>Express</h3>
-      <p>Express is a lightweight web application framework ot help you organise your web application into an MVC architecture on the server side. You can use a variety of choices for your templating language (like EJS, Jade, Dust.js, Handlebars)</p>
+      <p>Express is a lightweight web application framework to help you organise your web application into an MVC architecture on the server side. You can use a variety of choices for your templating language (like EJS, Jade, Dust.js, Handlebars)</p>
       <p>You can then use a database to provide a backend for your Node.js application. Express.js basically helps you manage everything,from routes to handling requests and views.</p>
+      <p>To learn how to set up a basic Hello World application, <a href="https://expressjs.com/en/starter/hello-world.html">follow the instructions here</a>. Be sure to include code at the bottom of you page to set up and launch the server, for example: </br>
+      <code>
+      var port = parseInt(process.env.PORT || 3000);
+      app.listen(port, function () {
+        console.log('App listening on port '+port+'!');
+      });</code>
+      <p>The below image provides an overview of how express works (see also the <a href="http.html">page explaining HTTP)</a>:
+  <img src="../img/expressOverview.jpg"/></p>
   </div>
 </div>
   <!--introduction-->
 
 <div class="row">
-  <div class="small-12 medium-3 large-8 columns">
+  <div class="small-12 medium-3 large-6 columns">
     <h3>Basic routing</h3>
     <p>Routing refers to determining how an application responds to a client request to a particular endpoint. This includes:
       <ul>
@@ -37,10 +45,15 @@ title: Express
     });
   </code>
     </p>
+    <p>To display a different endpoint, simply change the path parameter. E.g., instead of sites you could point to the endpoint helen/awesome using this code:</p>
+    <code>app.get('/helen/awesome', function (req, res) {</br>
+  res.send('Hello World!');</br>
+});</code>
+
     
   </div>
 
-  <div class="small-12 medium-6 large-4 columns">
+  <div class="small-12 medium-6 large-6 columns">
     <h3>Documentation</h3>
     <p>Documentation for Express can be found here: <a href="http://expressjs.com/en/api.html">Express API documentation</a>.</p>
     <p>Note the different categories of documentation on the right of the webpage. It is categorised according to:
@@ -80,27 +93,61 @@ title: Express
 
 <div class="row">
 	<div class="small-12 medium-3 large-4 columns">
-    <h3>Title</h3>
-    <p>Sed erat mauris, volutpat et tempus at, imperdiet quis mi. Proin at faucibus sapien. Praesent vitae posuere augue. Sed sodales neque at lectus dapibus, id eleifend nulla ultricies.  </p>
-    <p>Sed pretium orci vel massa faucibus, sit amet sollicitudin ligula accumsan. Nunc eleifend, purus id lacinia congue, risus leo laoreet arcu, eget tincidunt arcu metus a odio.: <code>code</code>
+    <h3>Request</h3>
+    <p>Request (see the function above) is an object and as such has various properties, as well as methods, that can be accessed.</p>
+    <p>For example, imagine that you would like to access the parameters from a url. To find out how to do this, check the Express docs under Request and you'll see there is a property <a href="http://expressjs.com/en/api.html#req.params"></a>'req.params'</a>. This property is an object containing properties mapped to the named route “parameters”. For example,
+      if you have a route such as /user/:name, you can access the 'name' property using <code>req.params.name</code>. This object defaults to {}. </p>
+    <p>To return the params from the url: /user/naughty, the following code could be used:</br>
+      <code>app.get('/user/:name', function (req, res) {</br>
+  res.send('you are ' + req.params.name);</br>
+});</code>
+    This would return display on the page: </br>
+    --> you are naughty.
     </p>
-  </div>
-
-  <div class="small-12 medium-3 large-8 columns">
-    <h3>Sed pretium orci vel m</h3>
-    <p>Sed pretium orci vel massa faucibus, sit amet sollicitudin ligula accumsan. Nunc eleifend, purus id lacinia congue, risus leo laoreet arcu, eget tincidunt arcu metus a odio.
-      <code>code</code>
-  
-    </p>
-    <p>d pretium orci vel massa faucibus, sit amet sollicitudin ligula accumsan. Nunc eleifend, purus id lacinia congue, risus leo laoreet arcu, eget tincidunt arcu metus a odio.</p>
-    <img src="../img/expressOverview.jpg"/>
-  </div>
-
-    <div class="small-12 medium-6 large-8 columns">
     
-    </div>
-
-
   </div>
+
+  <div class="small-12 medium-6 large-8 columns">
+     <h3>Display the result of a query string</h3> 
+     <p>This time, imagine that you'd like to display the result of a longer query string. Again, you need to check the Express API docs. Under Request you'll see there is a property <a href="https://expressjs.com/en/4x/api.html#req.query"></a>'req.query'</a>.</p>
+     <p>It tells us: <b>req.query</b>: This property is an object containing a property for each query string parameter in the route. If there is no query string, it is the empty object, {}.</p>
+     <p>Imagine the URL is as follows: <code>localhost:3000/users?name=bernard&maxage=23&minage=12</code></p>
+     <p>There are a number of steps that need to be carried out in order to display the results from this query. These are:
+      <ul>
+        <li>Create the empty app.get function e.g. 
+          <code>app.get('/users', function (req, res) { ....... </br>
+          });</code></li>
+        <li>Inside, create variables to hold each of the parameters e.g. var maxage = req.query.maxage</li>
+        <li>Create a variable to hold the context in the template where the results of these variables need to be inserted.</li>
+        <li>Create a variable to hold the result of passing this context into the template function e.g. var html = revisionTemplate(context);</li>
+        <li>Outside of this function, create a function to turn the content of the template file, in this case revision.html into a template using handlebars. See function templateFromPath below. </li>
+        <li>Save the results of this function, with the input path set to the appropriate file, into a variable, in this case, var revisionTemplate.</li>
+
+      </ul></p>
+      <p>The code is as follows:</p>
+     <img src="../img/return_query.png"/>
+  </div>
+</div>
+
+<div class="row">
+  <div class="small-12 medium-6 large-6 columns">
+    <h3>Running your app on local host</h3>
+    <p>To check if your code is working properly, 
+      you can open your website using terminal. 
+      In the terminal, navigate to the correct folder, e.g. myapp/, then run the appropriate js file in node e.g. :
+      <img src="../img/bash_express.png"/>
+      To escape node, press cntrl C.  
+    </p> 
+  </div>
+
+    <div class="small-12 medium-6 large-6 columns">
+    <h3>Title</h3>
+    <p></p> 
+  </div>
+
+  
+
+
+</div>
 
 <!--End of content row 2-->
