@@ -8,7 +8,16 @@ title: HTTP
   <div class="small-12 medium-6 large-12 columns">
       <h3>HTTP</h3>
       <p>HTTP stands for Hyper Text Transfer Protocol. A protocol is a set of formal rules describing how to transmit or exchange data, especially across a network.</p>
-      <p>In the case of the internet, you send a request via your client (e.g. your internet browser, or via your terminal using curl). The request is in HTTP and <a href="">consists of various parts</a>., sends a request e.g. ......../simulation (the domain is not necessary at this stage, this is only used to get . This request is sent to the server (after it's IP addess as been obtained)</p>
+      <p>When you request a webpage via your internet browser using a URL e.g. http://humanevolution.com/simulations.html, various steps occur, these include:</p>
+      <ol>
+        <li>Requesting the IP address for the server, where your website is stored</li>
+        <li>Now you know where the website is stored, sending an HTTP request to the server for the particular page you'd like to see</li>
+        <li>The webframework e.g Express will then need to convert your http request into an object with request and response parameters</li>
+        <li>Next, this object will be passed into one or more handler functions set up on the server in Express. These will be executed if their path matches the path/endpoint (e.g. page) that you requested. These functions could do various things such as send back a static HTML page. They might also fetch content from a database, and put it into a template ready to be sent back.</li>
+        <li>The resulting object will finally need to be converted into HTTP so that the requested information can be sent back to your browser.</li>
+        <p>These steps are <a href="#HTTPRequestSteps"></a>explained in more detail below.</a> </p>
+      </ol>
+        
   </div>
 </div>
   <!--introduction-->
@@ -18,14 +27,42 @@ title: HTTP
     <h3>Documentation</h3>
     <p>Documentation for HTTP can be found here: 
       <a href="http://sqlite.org/lang_createtable.html">HTTP documentation</a>.</p>
-    <h4>Request Methods</h4>
-    
+    <a name="HTTPRequestSteps"><h4>HTTP Requests</h4></a>
+    <ol>
+          <li>First, the browser needs to get the IP address of the server where the requested webpage i.e. www.humanevolution.com/simulations.html is stored.</li>
+            <p>
+            To do this, it extracts the domain name from the url i.e. humanevolution.com and asks the DNS for the IP address. If the DNS server has the address for the server where that domain is stored, it will return it. Otherwise it will forward the query along to the DNS server it is configured to defer to. The DNS server will then send the IP address back to the client. The client machine now has an IP address that uniquely identifies a machine on the internet.</p>
 
+          <li>Next the client assembles an HTTP request. This has a HEADER consisting of various parts including:
+            <ul>
+              <li>The specific path requested, in this case /simulations.html </li>
+              <li>The HTTP version being used e.g. HTTP 1.1</li>
+              <li>The user-agent. This might be curl if you're using your terminal to send the request and will be displayed as a key:value pair e.g. User-Agent: curl/7.37.1</li>
+              <li>Host: e.g. humanevolution.com </li>
+            </ul>
+          </li>
+          <li>Once the request reaches the server, it will be converted into an object. What happens after this will be explained in more detail <a href="../Tools/express.html">here.</a></li>
+          <li>Once the HTTP request has been processed by the server, it will convert the resulting object into HTTP response to send back to the browser. The response will include various HEADER fields including:
+            <ul>
+              <li>The version of the HTTP protocol e.g HTTP 1.1</li>
+              <li>The Status code e.g. 200 which means that the page has been processed and return successfully. See here for <a href="#statusCodes"></a> further types of HTTP status codes.</li>
+              <li>the server that is running e.g. nginx/1.6.2</li>
+              <li>content-type: text/html; charset = utf-8</li>
+              <li>content-length: 173747</li>
+              <li>set-cookie: vid=196338346 (This is how a cookie gets set)</li>
+              <li><!DOCTYPE html> i.e. the actual docs being sent over</li>
+            </ul>
+          </li>
+          <li>The transaction is now over. if you start again, it doesn't remember who you are. This is a concept called being <i>stateless</i>
+          </li>
+          <li>See <a href="https://en.wikipedia.org/wiki/List_of_HTTP_header_fields"></a>for a much more thorough list of header fields.
+          </li>
+        </ol>
   </div>
 
   <div class="small-12 medium-6 large-4 columns">
-    <h4>HTTP Status Codes</h4>
-    <p>Status codes fall into XX main categories:
+    <a name="statusCodes"><h4>HTTP Status Codes</h4></a>
+    <p>Status codes fall into five main categories, as outline below. For a full list see <a href="https://en.wikipedia.org/wiki/List_of_HTTP_status_codes">Wikipedia</a>:
     <ol>
       <li>1XX INFORMATIONAL</li>
         <ul>
@@ -46,6 +83,7 @@ title: HTTP
         <ul>
           <li>Bad request</li>
           <li>Unauthorised</li>
+          <li>418: I'm a teapot</li>
         </ul>
       <li>5XX SERVER ERROR</li>
       The server failed to fulfil an apparently valid request.
@@ -61,24 +99,35 @@ title: HTTP
 
 <div class="row">
 	<div class="small-12 medium-3 large-4 columns">
-    <h3>Title</h3>
-    <p>adipiscing elit. Morbi gravida dictum porttitor. Vivamus dapibus turpis a ligula ullamcorper, eu finibus quam dictum. Fusce </p>
-    <p> 
-      adipiscing elit. Morbi gravida dictum porttitor. Vivamus dapibus turpis a ligula ullamcorper, eu finibus quam dictum. Fusce 
-    <code>write code here</code></p>
+    <h3>Dev Tools</h3>
+    <p>Various Dev tools exist for inspecting request headers. One web too is <a href="http://httpbin.org">httpbin.org</a> You can also use the httpfox extension in Firefox or Fiddler for Windows.</p>
+    <p> In Chrome you can use Dev tools to inspect the request and it's headers:
+      <ul>
+        <li>Visit the URL</li>
+        <li>Right-click - select inspect</li>
+        <li>Select the Network tab</li>
+        <li>Reload the page - select the URL of interest - HTTP Headers are displayed on the right-hand panel</li>
+
+      </ul>
+    </p>
   </div>
 
   <div class="small-12 medium-3 large-8 columns">
-    <h3>Title title</h3>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi gravida dictum porttitor. Vivamus dapibus turpis a ligula ullamcorper, eu finibus quam dictum. Fusce id enim vitae ipsum faucibus lacinia. 
-      <code>var expect = chai.expect;</code>
-      For more information see the <a href="http://chaijs.com/">Chai documentation</a>
-    </p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi gravida dictum porttitor. Vivamus dapibus turpis a ligula ullamcorper, eu finibus quam dictum. Fusce id enim vitae ipsum faucibus lacinia. Etiam mattis sed neque eu molestie. Sed erat mauri </p>
-    <img src="../img/chaiVsAssert.jpg"/>
+  <a name="requestMethods"><h4>Request Methods</h4></a>
+    <p>HTTP request methods indicate the action that should be performed on the identified resource. See <a href="https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol#Request_methods">Wikipedia</a> for more details.</p>
+    <p>Some of the main request methods are:
+      <ul>
+        <li><b>GET</b>: The GET method requests a representation of the specified resource. Requests using GET should only retrieve data and should have no other effect. </li>
+        <li><b>HEAD</b>: The HEAD method asks for a response identical to that of a GET request, but without the response body. This is useful for retrieving meta-information written in response headers, without having to transport the entire content.</li>
+        <li><b>POST</b>: The POST method requests that the server accept the entity enclosed in the request as a new subordinate of the web resource identified by the URI. The data POSTed might be, for example, an annotation for existing resources; a message for a bulletin board, newsgroup, mailing list, or comment thread; a block of data that is the result of submitting a web form to a data-handling process; or an item to add to a database.</li>
+        <li><b>PUT</b>: The PUT method requests that the enclosed entity be stored under the supplied URI. If the URI refers to an already existing resource, it is modified; if the URI does not point to an existing resource, then the server can create the resource with that URI.</li>
+        <li><b>DELETE</b>: The DELETE method deletes the specified resource.</li>
+      </ul></p>
   </div>
 
     <div class="small-12 medium-6 large-8 columns">
+      <h4>Abstractions</h4></a>
+    <p><b>Node.js</b> has a library called HTTP - thsi gets back an HTTP request. For Python there is Flask. Ember is another high level abstraction. AngularJS is similar to Node, but in this case headers will come back in a JSON object.</p>
     
     </div>
 
