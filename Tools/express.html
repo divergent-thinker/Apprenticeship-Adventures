@@ -118,10 +118,11 @@ title: Express
           <code>app.get('/users', function (req, res) { ....... </br>
           });</code></li>
         <li>Inside, create variables to hold each of the parameters e.g. var maxage = req.query.maxage</li>
-        <li>Create a variable to hold the context in the template where the results of these variables need to be inserted.</li>
-        <li>Create a variable to hold the result of passing this context into the template function e.g. var html = revisionTemplate(context);</li>
+        <li>Create a variable to hold the context in the template where the results of these variables need to be inserted. e.g. <code>var context = {name: name, maxage: maxage, minage: minage};</code></li>
+        <li>Create a variable to hold the result of passing this context into the template function e.g. <code>var html = revisionTemplate(context);</code></li>
         <li>Outside of this function, create a function to turn the content of the template file, in this case revision.html into a template using handlebars. See function templateFromPath below. </li>
-        <li>Save the results of this function, with the input path set to the appropriate file, into a variable, in this case, var revisionTemplate.</li>
+        <li>Save the results of this function, with the input path set to the appropriate file, into a variable, in this case, <code>var revisionTemplate = templateFromPath('./templates/revision.html);</code></li>
+        <li>Finally, create a response within app.get so that the resulting html can be sent back to the user e.g. <code>res.send(html);</code></li>
 
       </ul></p>
       <p>The code is as follows:</p>
