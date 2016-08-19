@@ -18,12 +18,18 @@ title: Handlebars
     <p>See here for <a href="http://handlebarsjs.com/installation.html">Handlebars installation instructions</a></p>
     <p>To install via terminal user <code>npm install --save handlebars</code></p>
     <p>Once you have installed handlebars, you will need to require it in your JS file e.g. <code>var handlebars = require('handlebars');</code></p>
-    
+    <p>Handlebars is just a Javascript libary, so you can also include it in your pages the same way as you would any other script e.g.:
+      <code><s cript type="text/javascript"
+    src="/scripts/handlebars-0.9.0.pre.4.js" /></code></p>
   </div>
 
   <div class="small-12 medium-6 large-4 columns">
-    <h3>Title</h3>
-    <p>lorum ipsum....</p>
+    <h3>Basics Expressions</h3>
+    <p>Handebars templates look like normal HTML documents, with embedded handbars expressions. The handlebars expression is a {{some content followed by a }}. When an expression is reached, handlebars will look for an item in the current context that matches it. If the matching item is a value, that will be the output. IF the matching item is a function, it will be called.</p>
+    <p>A dot (.) operator can be used in expressions to output nested values e.g. 
+    <code>{user.firstname}</code> would output the firstName property on the user value in the current context. Note it should be a double not single moustache, I just had to write it like this to get it to display.</p>
+    <p>See <a href="http://blog.teamtreehouse.com/getting-started-with-handlebars-js">
+      this blog</a> for more detail.</p>
   </div>
 </div>
 <!--End of content row 1-->
@@ -31,9 +37,26 @@ title: Handlebars
 
 <div class="row">
 	<div class="small-12 medium-3 large-4 columns">
-    <h3>Title</h3>
-    <p>Sed erat mauris, volutpat et tempus at, imperdiet quis mi. Proin at faucibus sapien. Praesent vitae posuere augue. Sed sodales neque at lectus dapibus, id eleifend nulla ultricies.  </p>
-    <p>Sed pretium orci vel massa faucibus, sit amet sollicitudin ligula accumsan. Nunc eleifend, purus id lacinia congue, risus leo laoreet arcu, eget tincidunt arcu metus a odio.: <code>code</code>
+    <h3>Blocks</h3>
+    <p>Blocks can be used to template, er, blocks in a template. For example, you might have a list of names that you wish to display, which are held in an array. </p>
+    <p>To open and close a block use a # and a close tag e.g.:
+      <code>
+        <ul>
+          {#people}}
+             <li>{name}}</li>
+          {/people}}
+        </ul>  
+      </code>
+      This would output the following array for example:
+      <code>
+        var data = {people: [</br>
+            {name: "Alan"},</br>
+            {name: "Allison"},</br>
+            {name: "Ryan"}</br>
+          ], group: "Bloggers" };</br>
+      </code> 
+    </p>
+    <p>blkah blah blah
     </p>
   </div>
 
@@ -44,7 +67,7 @@ title: Handlebars
   
     </p>
     <p>d pretium orci vel massa faucibus, sit amet sollicitudin ligula accumsan. Nunc eleifend, purus id lacinia congue, risus leo laoreet arcu, eget tincidunt arcu metus a odio.</p>
-    <img src="../img/expressOverview.jpg"/>
+    <img src="../img/imagename.jpg"/>
   </div>
 
     <div class="small-12 medium-6 large-8 columns">
